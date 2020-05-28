@@ -5,20 +5,21 @@
 	<title></title>
 </head>
 <body>
+	<form>
 <ul>
  <li>Enter your information  </li>
 <li>firstname <input id="firstname"> </li>
 <li>lastname <input id="lastname"> </li>
 <li>age <input id="age"> </li>
 <li><ul id="profession"><li>profession</li>
-<li>IT<input type="radio" id="it"></li>
-<li>Hospitality<input type="radio" id="hospitality"></li>
+<li>IT<input type="radio" id="it" name="test2"></li>
+<li>Hospitality<input type="radio" id="hospitality" name="test"></li>
 </ul></li>
 </ul>
 <div id="result">
 </div>
 <button type="button" onclick="divfunction()">Submit</button>
-
+</form>
 <!-- <p id="future"></p> -->
 
 <script type="text/javascript">
@@ -27,13 +28,15 @@ function divfunction (firstname, lastname, age) {
 		var firstname = (document.getElementById("firstname").value);
 		var lastname = (document.getElementById("lastname").value);
 		var age = (document.getElementById("age").value);
+
 		var length = lastname.length
-		var all = firstname + " " + lastname + " " + age;
-	if (length > 5) { document.getElementById("result").style.color ="green";
+		var all = firstname + " <span id='lname'>" + lastname + "</span> " + age;
+		document.getElementById("result").innerHTML=all;
+	if (length > 5) { document.getElementById("lname").style.color ="green";
 	}
-	else { document.getElementById("result").style.color ="red"}
+	else { document.getElementById("lname").style.color ="red"}
 		
-	document.getElementById("result").innerHTML=all;
+	
 	//return all
 
 	if (document.getElementById("it")) {document.getElementById("result").style.background ="purple";
