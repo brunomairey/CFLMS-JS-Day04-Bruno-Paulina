@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+ <p> Enter your future </p>
+<p>Job <input id="firstname"> </p>
+<p>location <input id="location"> </p>
+<p>partner <input id="partners_name"> </p>
+<p>children <input id="number_childrens"> </p>
+<button type="button" onclick="crystalGazer()">Submit</button>
+
+<p id="future"></p>
+
+<script type="text/javascript">
+
+function crystalGazer (job_title, location, partners_name, number_childrens) {
+		var job_title = (document.getElementById("job_title").value);
+		var location = (document.getElementById("location").value);
+		var partners_name = (document.getElementById("partners_name").value);
+		var number_childrens = (document.getElementById("number_childrens").value);
+	var all =("You will be a " + job_title + " in " + location + " and married to " + partners_name + " with " + number_childrens + " childrens.<br>");
+	document.getElementById("future").innerHTML=all;
+	return all
+	}
+
+
+	class Person { // ①
+   firstName = ""; // ②
+   lastName = ""; // ②    
+constructor(firstName, lastName) { // ③
+       this.firstName = firstName;
+       this.lastName = lastName;
+</script>
+</body>
+</html>
