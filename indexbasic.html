@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title></title>
 </head>
 <body>
+<ul>
+ <li>Enter your information  </li>
+<li>firstname <input id="firstname"> </li>
+<li>lastname <input id="lastname"> </li>
+<li>age <input id="age"> </li>
+<li><ul id="profession"><li>profession</li>
+<li>IT<input type="radio" id="it"></li>
+<li>Hospitality<input type="radio" id="hospitality"></li>
+</ul></li>
+</ul>
+<div id="result">
+</div>
+<button type="button" onclick="divfunction()">Submit</button>
 
- <p> Enter your future </p>
-<p>Job <input id="firstname"> </p>
-<p>location <input id="location"> </p>
-<p>partner <input id="partners_name"> </p>
-<p>children <input id="number_childrens"> </p>
-<button type="button" onclick="crystalGazer()">Submit</button>
-
-<p id="future"></p>
+<!-- <p id="future"></p> -->
 
 <script type="text/javascript">
 
-function crystalGazer (job_title, location, partners_name, number_childrens) {
-		var job_title = (document.getElementById("job_title").value);
-		var location = (document.getElementById("location").value);
-		var partners_name = (document.getElementById("partners_name").value);
-		var number_childrens = (document.getElementById("number_childrens").value);
-	var all =("You will be a " + job_title + " in " + location + " and married to " + partners_name + " with " + number_childrens + " childrens.<br>");
-	document.getElementById("future").innerHTML=all;
-	return all
+function divfunction (firstname, lastname, age) {
+		var firstname = (document.getElementById("firstname").value);
+		var lastname = (document.getElementById("lastname").value);
+		var age = (document.getElementById("age").value);
+		var length = lastname.length
+		var all = firstname + " " + lastname + " " + age;
+	if (length > 5) { document.getElementById("result").style.color ="green";
+	}
+	else { document.getElementById("result").style.color ="red"}
+		
+	document.getElementById("result").innerHTML=all;
+	//return all
+
+	if (document.getElementById("it")) {document.getElementById("result").style.background ="purple";
+}
+else {document.getElementById("result").style.background ="yellow";
+}
+
 	}
 
-
-	class Person { // ①
-   firstName = ""; // ②
-   lastName = ""; // ②    
-constructor(firstName, lastName) { // ③
-       this.firstName = firstName;
-       this.lastName = lastName;
 </script>
 </body>
 </html>
