@@ -10,44 +10,85 @@
 <body>
     <form>
         <label for="hotel.name">Choose a hotel </label><br>
-        <select>
-            <option value="0">Hilton</option>
-            <option value="1">Four Seasons</option>
-            <option value="2">Vienna Hotel</option>
+        <select id="selectOption">
+            <option>Hilton</option>
+            <option>Four Seasons</option>
+            <option>Vienna Hotel</option>
         </select>
         <br>
         <label for="numberOfNights">Number of nights</label><br>
         <input type="text" id="number" name="number"><br>
     </form>
-    <button id="check" type="button" onclick="checkAvailability()">Check</button>
-    <p>"Sorry, no available nights for></p>
+    <button id="check" type="button" onclick="resultT()">Check</button>
+    <p id="result"></p>
 
     <script>
-        var hotel = new Object();
-        hotel.name = 'Hilton';
-        numberOfNights = Number(document.getElementById("number").value);
-        numberOfNightsAv = Math.floor(Math.random() * 10 + 1);
-        address = ;
-        image = ;
-        hotel.checkAvailability = function() {
-            return this.numberOfNights - this.numberOfNightsAv;
-            If(numberOfNights < numberOfNightsAv) {
-                document.getElementById("check").innerHTML;
+        /* var hotel = new Object();
+                                                                                                                                                                                        hotel.name = 'Hilton';
+
+                                                                                                                                                                                        hotel.numberOfNightsAv = Math.floor(Math.random() * 10 + 1);
+                                                                                                                                                                                        address = 'jnfndsLKVN';
+                                                                                                                                                                                        image = 'lkdlkvnVkn';
+                                                                                                                                                                                        hotel.checkAvailability = function() {
+                                                                                                                                                                                            console.log(document.getElementById("selectOption").value)
+                                                                                                                                                                                            numberOfNights = Number(document.getElementById("number").value);
+                                                                                                                                                                                            console.log(numberOfNights, hotel.numberOfNightsAv);
+                                                                                                                                                                                            if (numberOfNights < hotel.numberOfNightsAv) {
+                                                                                                                                                                                                document.getElementById("result").innerHTML = "<button> I will reserve</button>";
+                                                                                                                                                                                            } else {
+                                                                                                                                                                                               document.getElementById("result").innerHTML = "Sorry it's not available";
+
+                                                                                                                                                                                                                                                                                     // return this.numberOfNights - this.numberOfNightsAv;
+                                                                                                                                                                                        };
+                                                                                                                                                                                */
+        class Hotel {
+            name;
+            numberOfNightsAv = Math.floor(Math.random() * 10 + 1);
+            address;
+            image;
+
+            constructor(n, a, i) {
+                this.name = n;
+                this.address = a;
+                this.image = i;
             }
-            else {
-                document.getElementsByTagName("p").innerHTML + hotel.name;
+
+            checkAvailability() {
+                var numberOfNights = document.getElementById("number").value;
+                console.log(numberOfNights);
+                if (numberOfNights < this.numberOfNightsAv) {
+                    document.getElementById("result").innerHTML = "<button> I will reserve</button>";
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry it's not available for" + name;
+
+                }
 
             }
-        };
-        var hotel = new Object();
+        }
+
+        var hilton = new Hotel("hilton", "linzerstrasse", "hilton.jpg");
+        var fourS = new Hotel("Four Seasons", "Favoritenstrasse", "fourS.jpeg");
+        var vienna = new Hotel("Vienna Hotel", "Margaretenstrasse", "vienna.jpg");
+        var hotels = [hilton, fourS, vienna];
+
+
+        function resultT() {
+            hilton.checkAvailability();
+        }
+
+        //document.write("<img src=" + hilton.image + ">")
+        //document.write("<img src=" + fourS.image + ">")
+        //document.write("<img src=" + vienna.image + ">")
+
+        /*var hotel = new Object();
         hotel.name = 'Four Seasons';
         numberOfNights = Number(document.getElementById("number").value);
         numberOfNightsAv = Math.floor(Math.random() * 10 + 1);
-        address = ;
-        image = ;
+        address = 'jnfndsLKVN';
+        image = 'lkdlkvnVkn';
         hotel.checkAvailability = function() {
             return this.numberOfNights - this.numberOfNightsAv;
-            If(numberOfNights < numberOfNightsAv) {
+            if(numberOfNights < numberOfNightsAv) {
                 document.getElementById("check").innerHTML;
             }
             else {
@@ -70,7 +111,7 @@
                 document.getElementsByTagName("p").innerHTML + hotel.name;
 
             }
-        };
+        };*/
     </script>
 
 </body>
